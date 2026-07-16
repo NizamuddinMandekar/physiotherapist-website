@@ -1,0 +1,77 @@
+"use client";
+
+import { motion, type Variants } from "framer-motion";
+import type { ReactNode } from "react";
+
+const fadeUp: Variants = {
+  hidden: { opacity: 0, y: 28 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] },
+  },
+};
+
+export function Reveal({
+  children,
+  delay = 0,
+  className,
+  as = "div",
+}: {
+  children: ReactNode;
+  delay?: number;
+  className?: string;
+  as?: "div" | "span";
+}) {
+  const MotionTag = as === "span" ? motion.span : motion.div;
+  return (
+    <MotionTag
+      className={className}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, margin: "-80px" }}
+      variants={fadeUp}
+      transition={{ delay }}
+    >
+      {children}
+    </MotionTag>
+  );
+}
+
+export const staggerContainer: Variants = {
+  hidden: {},
+  show: {
+    transition: { staggerChildren: 0.09, delayChildren: 0.05 },
+  },
+};
+
+export function StaggerGroup({
+  children,
+  className,
+}: {
+  children: ReactNode;
+  className?: string;
+}) {
+  return (
+    <motion.div
+      className={className}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, margin: "-60px" }}
+      variants={staggerContainer}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
+export const staggerItem: Variants = {
+  hidden: { opacity: 0, y: 20 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] },
+  },
+};
+
+export const StaggerItem = motion.div;

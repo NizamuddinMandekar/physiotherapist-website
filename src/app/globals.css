@@ -1,26 +1,101 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:is(.dark *));
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f6fbfa;
+  --surface: #ffffff;
+  --surface-muted: #eaf5f3;
+  --foreground: #0b3b36;
+  --muted-foreground: #4b6b66;
+  --primary: #0f766e;
+  --primary-foreground: #ffffff;
+  --secondary: #14b8a6;
+  --accent: #0369a1;
+  --border: #cdeae4;
+  --whatsapp: #25d366;
+  --whatsapp-dark: #128c7e;
+  --ring: #0f766e;
+  --shadow-color: 178 90% 20%;
+}
+
+.dark {
+  --background: #071815;
+  --surface: #0d211d;
+  --surface-muted: #102b26;
+  --foreground: #e7f6f3;
+  --muted-foreground: #9dc4bd;
+  --primary: #2dd4bf;
+  --primary-foreground: #05201c;
+  --secondary: #5eead4;
+  --accent: #38bdf8;
+  --border: #1c3733;
+  --whatsapp: #25d366;
+  --whatsapp-dark: #1ea952;
+  --ring: #2dd4bf;
+  --shadow-color: 178 90% 2%;
 }
 
 @theme inline {
   --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-surface-muted: var(--surface-muted);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-accent: var(--accent);
+  --color-border: var(--border);
+  --color-whatsapp: var(--whatsapp);
+  --color-whatsapp-dark: var(--whatsapp-dark);
+  --color-ring: var(--ring);
+  --font-heading: var(--font-figtree);
+  --font-sans: var(--font-noto-sans);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+::selection {
+  background: var(--primary);
+  color: var(--primary-foreground);
+}
+
+.font-heading {
+  font-family: var(--font-heading);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.bg-grid {
+  background-image:
+    linear-gradient(to right, var(--border) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--border) 1px, transparent 1px);
+  background-size: 44px 44px;
+}
+
+.mask-fade-b {
+  mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
 }
