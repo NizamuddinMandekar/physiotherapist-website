@@ -245,23 +245,19 @@ export const FAQS = [
   },
 ];
 
-export const WHATSAPP_BOT_SCRIPT = [
+export const WHATSAPP_CHAT_SCRIPT = [
   {
-    from: "bot" as const,
-    text: "Namaste 👋 I'm Dr. Akshada's WhatsApp assistant. How can I help today?",
+    from: "user" as const,
+    text: "Hi Dr. Akshada, I'd like to book a physiotherapy home visit.",
   },
   {
-    from: "options" as const,
-    options: ["Book a home visit", "Ask about a condition", "Check availability"],
+    from: "doctor" as const,
+    text: "Namaste 👋 This is Dr. Akshada. Could you share your condition (e.g. knee pain, post-surgery recovery) and your area?",
   },
-  { from: "user" as const, text: "Book a home visit" },
+  { from: "user" as const, text: "Post-knee surgery, need home rehab. I'm in Andheri." },
   {
-    from: "bot" as const,
-    text: "Great! Could you share the condition (e.g. knee pain, post-surgery recovery) and your area?",
+    from: "doctor" as const,
+    text: "Post-surgical knee rehabilitation is one of my core specialties. I can visit tomorrow shall we confirm a time? ✅",
   },
-  { from: "user" as const, text: "Post-knee surgery, need home rehab" },
-  {
-    from: "bot" as const,
-    text: "Got it post-surgical knee rehabilitation is one of Dr. Akshada's core specialties. Connecting you now to confirm a visit time ✅",
-  },
+  { from: "user" as const, text: "Yes, morning works for me 🙏" },
 ];

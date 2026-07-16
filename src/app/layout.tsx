@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Figtree, Noto_Sans } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
 import { WhatsAppFloatButton } from "@/components/whatsapp-float-button";
+import { SmoothAnchors } from "@/components/smooth-anchors";
 import "./globals.css";
 
 const figtree = Figtree({
@@ -42,6 +43,7 @@ export default function RootLayout({
         >
           {children}
           <WhatsAppFloatButton />
+          <SmoothAnchors />
         </ThemeProvider>
       </body>
     </html>

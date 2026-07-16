@@ -10,21 +10,21 @@ import { Reveal } from "@/components/motion/reveal";
 const FEATURES = [
   {
     icon: MessagesSquare,
-    title: "Instant WhatsApp booking",
+    title: "Simple WhatsApp booking",
     description:
       "Skip the phone tag by describing your condition and preferred time directly in chat.",
   },
   {
     icon: Clock,
-    title: "Fast assistant replies",
+    title: "Personal, timely replies",
     description:
-      "The booking assistant responds in seconds and hands off to Dr. Akshada for anything specific.",
+      "No bots and no call centres Dr. Akshada personally reads and replies to every message.",
   },
   {
     icon: CalendarCheck,
-    title: "Visit reminders included",
+    title: "Everything in one thread",
     description:
-      "Appointment confirmations and reminders land right in the same chat thread.",
+      "Appointment confirmations, reminders and follow-up questions all stay in the same chat.",
   },
 ];
 
@@ -43,15 +43,16 @@ export function WhatsAppSection() {
           <Reveal>
             <span className="inline-flex items-center gap-2 rounded-full border border-whatsapp/30 bg-whatsapp/10 px-4 py-1.5 text-xs font-bold uppercase tracking-wide text-whatsapp-dark dark:text-whatsapp">
               <WhatsAppIcon className="h-3.5 w-3.5" />
-              WhatsApp integration
+              WhatsApp booking
             </span>
             <h2 className="text-balance mt-4 font-heading text-3xl font-extrabold leading-tight text-foreground sm:text-4xl">
               Booking &amp; support, right where you already chat
             </h2>
             <p className="mt-4 max-w-lg text-base leading-relaxed text-muted-foreground">
-              No apps to install and no portals to log into. A dedicated
-              WhatsApp assistant handles the first response instantly, so
-              booking a home physiotherapy visit takes less than a minute.
+              No apps to install and no portals to log into. Message
+              Dr. Akshada directly on WhatsApp with your condition and
+              preferred time booking a home physiotherapy visit takes
+              less than a minute.
             </p>
           </Reveal>
 
@@ -83,7 +84,7 @@ export function WhatsAppSection() {
               className="mt-9 inline-flex items-center gap-2.5 rounded-full bg-whatsapp px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-whatsapp/30"
             >
               <MessageCircle className="h-5 w-5" />
-              Chat with the assistant now
+              Chat on WhatsApp now
             </motion.a>
           </Reveal>
         </div>

@@ -141,20 +141,31 @@ export function Hero() {
           </div>
 
           <motion.div
-            animate={{ y: [0, -10, 0] }}
+            animate={{ y: [0, -8, 0] }}
             transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute -left-6 top-8 hidden w-44 rounded-2xl border border-border bg-surface/95 p-3.5 shadow-xl backdrop-blur sm:block"
+            style={{ willChange: "transform" }}
+            className="absolute -top-8 left-2 w-48 rounded-2xl border border-border bg-surface p-3.5 shadow-xl sm:-left-6 sm:top-8"
           >
-            <p className="font-heading text-2xl font-bold text-primary">10+</p>
-            <p className="text-xs leading-snug text-muted-foreground">
-              Specialty areas treated at home
-            </p>
+            <div className="flex items-center gap-2">
+              <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary/15 font-heading text-xs font-bold text-primary">
+                10+
+              </span>
+              <div>
+                <p className="text-xs font-semibold text-foreground">
+                  Specialty areas
+                </p>
+                <p className="text-[11px] text-muted-foreground">
+                  Treated at home
+                </p>
+              </div>
+            </div>
           </motion.div>
 
           <motion.div
-            animate={{ y: [0, 10, 0] }}
+            animate={{ y: [0, 8, 0] }}
             transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 0.4 }}
-            className="absolute -right-4 bottom-10 w-48 rounded-2xl border border-border bg-surface/95 p-3.5 shadow-xl backdrop-blur"
+            style={{ willChange: "transform" }}
+            className="absolute right-2 -bottom-8 w-48 rounded-2xl border border-border bg-surface shadow-xl p-3.5 sm:-right-4 sm:bottom-10"
           >
             <div className="flex items-center gap-2">
               <span className="flex h-8 w-8 items-center justify-center rounded-full bg-whatsapp/15 text-whatsapp">

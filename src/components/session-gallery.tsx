@@ -3,7 +3,7 @@ import { Reveal } from "@/components/motion/reveal";
 
 const GALLERY = [
   {
-    src: "https://images.unsplash.com/photo-1519824145371-296894a0daa9?auto=format&fit=crop&w=1200&q=80",
+    src: "/images/manual.jpeg",
     alt: "Physiotherapist performing manual therapy on a patient's back",
     caption: "Manual therapy",
     className: "sm:row-span-2",
@@ -15,7 +15,7 @@ const GALLERY = [
     className: "",
   },
   {
-    src: "https://images.unsplash.com/photo-1617952986600-802f965dcdbc?auto=format&fit=crop&w=1200&q=80",
+    src: "/images/electro.jpeg",
     alt: "Patient receiving therapeutic treatment during a home session",
     caption: "Electrotherapy & recovery",
     className: "",

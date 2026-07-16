@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Phone, Video, MoreVertical, Send } from "lucide-react";
-import { WHATSAPP_BOT_SCRIPT } from "@/lib/site-data";
+import { WHATSAPP_CHAT_SCRIPT } from "@/lib/site-data";
 
 const TYPE_DELAY = 900;
 const READ_DELAY = 1500;
@@ -13,9 +13,16 @@ export function WhatsAppBotDemo() {
   const [visibleCount, setVisibleCount] = useState(0);
   const [typing, setTyping] = useState(false);
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const scrollRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    const total = WHATSAPP_BOT_SCRIPT.length;
+    const el = scrollRef.current;
+    if (!el) return;
+    el.scrollTo({ top: el.scrollHeight, behavior: "smooth" });
+  }, [visibleCount, typing]);
+
+  useEffect(() => {
+    const total = WHATSAPP_CHAT_SCRIPT.length;
 
     if (visibleCount >= total) {
       timeoutRef.current = setTimeout(() => {
@@ -26,10 +33,9 @@ export function WhatsAppBotDemo() {
       };
     }
 
-    const next = WHATSAPP_BOT_SCRIPT[visibleCount];
-    const isBotLike = next.from === "bot" || next.from === "options";
+    const next = WHATSAPP_CHAT_SCRIPT[visibleCount];
 
-    if (isBotLike) {
+    if (next.from === "doctor") {
       // eslint-disable-next-line react-hooks/set-state-in-effect -- drives the scripted chat timeline, not syncing external state
       setTyping(true);
       timeoutRef.current = setTimeout(() => {
@@ -47,7 +53,7 @@ export function WhatsAppBotDemo() {
     };
   }, [visibleCount]);
 
-  const visibleMessages = WHATSAPP_BOT_SCRIPT.slice(0, visibleCount);
+  const visibleMessages = WHATSAPP_CHAT_SCRIPT.slice(0, visibleCount);
 
   return (
     <div className="mx-auto w-full max-w-sm">
@@ -58,7 +64,7 @@ export function WhatsAppBotDemo() {
           </span>
           <div className="flex-1">
             <p className="text-sm font-semibold leading-tight">
-              Dr. Akshada &middot; Assistant
+              Dr. Akshada Patil
             </p>
             <p className="text-[11px] text-white/80">
               {typing ? "typing…" : "online"}
@@ -69,39 +75,22 @@ export function WhatsAppBotDemo() {
           <MoreVertical size={17} className="opacity-80" />
         </div>
 
-        <div className="relative flex h-[380px] flex-col gap-2.5 overflow-hidden px-3.5 py-4">
+        <div className="relative h-[380px]">
           <div
             aria-hidden
-            className="pointer-events-none absolute inset-0 opacity-[0.06]"
+            className="pointer-events-none absolute inset-0 z-10 opacity-[0.06]"
             style={{
               backgroundImage:
                 "radial-gradient(currentColor 1px, transparent 1px)",
               backgroundSize: "16px 16px",
             }}
           />
+          <div
+            ref={scrollRef}
+            className="flex h-full flex-col gap-2.5 overflow-y-auto px-3.5 py-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+          >
           <AnimatePresence initial={false}>
             {visibleMessages.map((msg, i) => {
-              if (msg.from === "options") {
-                return (
-                  <motion.div
-                    key={i}
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0 }}
-                    className="flex flex-wrap gap-2 self-start"
-                  >
-                    {msg.options.map((opt) => (
-                      <span
-                        key={opt}
-                        className="rounded-full border border-[#0d9488]/40 bg-white px-3 py-1.5 text-[11.5px] font-medium text-[#0d9488] shadow-sm dark:bg-[#1f2c34] dark:text-[#5eead4]"
-                      >
-                        {opt}
-                      </span>
-                    ))}
-                  </motion.div>
-                );
-              }
-
               const isUser = msg.from === "user";
               return (
                 <motion.div
@@ -143,11 +132,12 @@ export function WhatsAppBotDemo() {
               </motion.div>
             )}
           </AnimatePresence>
+          </div>
         </div>
 
         <div className="flex items-center gap-2 bg-[#f0f0f0] px-3.5 py-3 dark:bg-[#1f2c34]">
           <div className="flex-1 rounded-full bg-white px-4 py-2 text-xs text-muted-foreground dark:bg-[#2a3942]">
-            Message Dr. Akshada&apos;s assistant…
+            Message Dr. Akshada…
           </div>
           <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#0d9488] text-white">
             <Send className="h-4 w-4" />
@@ -155,7 +145,7 @@ export function WhatsAppBotDemo() {
         </div>
       </div>
       <p className="mt-4 text-center text-[11px] text-muted-foreground">
-        Live preview of the WhatsApp booking assistant. Tap the button below to try the real thing.
+        A quick look at how booking works on WhatsApp. Tap the button below to start a real chat.
       </p>
     </div>
   );
