@@ -53,7 +53,7 @@ export function About() {
 
           <Reveal delay={0.08}>
             <p className="mt-5 max-w-xl text-base leading-relaxed text-muted-foreground">
-              {SITE.doctorName} ({SITE.credentials}) brings clinic-grade
+              Dr. Akshada Sanjay Patil ({SITE.credentials}) brings clinic-grade
               physiotherapy directly to your home, combining a thorough,
               personalized assessment with manual therapy, electrotherapy and
               guided exercise. From post-surgical recovery to chronic pain,
