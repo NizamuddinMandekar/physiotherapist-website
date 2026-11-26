@@ -55,9 +55,6 @@ export function About() {
             <span className="text-xs font-bold uppercase tracking-widest text-primary">
               About your physiotherapist
             </span>
-            <h2 className="text-balance mt-3 font-heading text-3xl font-extrabold leading-tight text-foreground sm:text-4xl">
-              Care that meets you where recovery actually happens at home
-            </h2>
           </Reveal>
 
           <div className="mt-5 max-w-xl space-y-4">
