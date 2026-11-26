@@ -130,7 +130,7 @@ export function Hero() {
         >
           <div className="relative aspect-[784/1371] w-full overflow-hidden rounded-[2.5rem] border border-border/60 bg-surface-muted shadow-2xl shadow-black/10">
             <Image
-              src="/images/dr-akshada-hero.png"
+              src="/images/dr-akshada-hero-v2.png"
               alt={`${SITE.doctorName}, physiotherapist`}
               fill
               priority

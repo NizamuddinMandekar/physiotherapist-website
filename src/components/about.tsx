@@ -41,7 +41,7 @@ export function About() {
           <div className="absolute -inset-4 -z-10 rounded-[2.5rem] bg-gradient-to-br from-primary/15 via-transparent to-accent/15" />
           <div className="relative aspect-[784/1371] w-full overflow-hidden rounded-[2rem] border border-border shadow-xl">
             <Image
-              src="/images/dr-akshada-about.png"
+              src="/images/dr-akshada-about-v2.png"
               alt={`${SITE.doctorName} in her clinic scrubs`}
               fill
               sizes="(max-width: 1024px) 80vw, 32vw"
