@@ -126,16 +126,16 @@ export function Hero() {
           initial={{ opacity: 0, scale: 0.92, y: 30 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-          className="relative mx-auto w-full max-w-sm lg:max-w-none"
+          className="relative mx-auto w-full max-w-sm lg:max-w-[22rem]"
         >
-          <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[2.5rem] border border-border/60 bg-surface-muted shadow-2xl shadow-black/10">
+          <div className="relative aspect-[784/1371] w-full overflow-hidden rounded-[2.5rem] border border-border/60 bg-surface-muted shadow-2xl shadow-black/10">
             <Image
               src="/images/dr-akshada-hero.png"
               alt={`${SITE.doctorName}, physiotherapist`}
               fill
               priority
               sizes="(max-width: 1024px) 90vw, 40vw"
-              className="object-cover object-top"
+              className="object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-primary/25 via-transparent to-transparent" />
           </div>
